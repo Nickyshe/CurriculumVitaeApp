@@ -1,17 +1,21 @@
 package com.example.cv_app.screen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -43,12 +47,15 @@ import com.example.cv_app.model.UserProfileViewModel
 @Composable
 fun CvView(navController: NavController, viewModel: UserProfileViewModel) {
     val stateFlow by viewModel.stateFlow.collectAsStateWithLifecycle()
-
+    val scrollState = rememberScrollState()
 
     Column(
         modifier = Modifier
+
             .background(Color(0xFFFFF0F5))
-            .fillMaxSize(),
+            .fillMaxSize()
+            .verticalScroll(state = scrollState),
+
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
@@ -64,17 +71,7 @@ fun CvView(navController: NavController, viewModel: UserProfileViewModel) {
         )
 
         Spacer(modifier = Modifier.height(30.dp))
-       /* Image(
-            painter = painterResource(id = R.drawable.slackphoto),
-            contentScale = ContentScale.Crop,
-            contentDescription = null,
-            modifier = Modifier
-                .size(175.dp)
-                .padding(15.dp)
-                .clip(CircleShape)
-                 Spacer(modifier = Modifier.height(10.dp))
-        )
-*/
+
 
         Text(
             stateFlow.fullname,
@@ -199,7 +196,7 @@ fun CvView(navController: NavController, viewModel: UserProfileViewModel) {
 
 //button
 
-        Spacer(modifier = Modifier.height(80.dp))
+        Spacer(modifier = Modifier.height(70.dp))
         Button(
             onClick = {
                 navController.navigate("editcv")

@@ -1,4 +1,4 @@
-# CURRICULUMVITAE APP
+# CURRICULUM-VITAE APP STAGE 2 HNG TASK
 # Description
 The **CURRICULUM VITAE APP** is a project developed with **Jetpack Compose** and *Kotlin*. It displays individuals' personal details and enables users to view and edit CV information seamlessly. 
 It also allows the user to navigate between the two screens.
@@ -33,7 +33,7 @@ implementation("androidx.lifecycle:lifecycle-viewmodel-compose:{latest_version}"
 implementation("androidx.navigation:navigation-compose:2.7.2")
 ````
 # Prerequisites
-1. Android Studio IDE
+1. [Android Studio](https://developer.android.com/studio) IDE
 2. Familiar with states and state holders in Compose and Android
 3. Implementation of dependencies
 4. Kotlin Programming Language

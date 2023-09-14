@@ -10,11 +10,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -41,7 +43,7 @@ import com.example.cv_app.model.UserProfileViewModel
 @Composable
 fun CvView(navController: NavController, viewModel: UserProfileViewModel) {
     val stateFlow by viewModel.stateFlow.collectAsStateWithLifecycle()
-    var showMore by remember { mutableStateOf(false) }
+
 
     Column(
         modifier = Modifier
@@ -61,8 +63,8 @@ fun CvView(navController: NavController, viewModel: UserProfileViewModel) {
             )
         )
 
-        Spacer(modifier = Modifier.height(10.dp))
-        Image(
+        Spacer(modifier = Modifier.height(30.dp))
+       /* Image(
             painter = painterResource(id = R.drawable.slackphoto),
             contentScale = ContentScale.Crop,
             contentDescription = null,
@@ -70,13 +72,13 @@ fun CvView(navController: NavController, viewModel: UserProfileViewModel) {
                 .size(175.dp)
                 .padding(15.dp)
                 .clip(CircleShape)
+                 Spacer(modifier = Modifier.height(10.dp))
         )
+*/
 
-        Spacer(modifier = Modifier.height(10.dp))
         Text(
             stateFlow.fullname,
-
-            fontSize = 20.sp,
+            fontSize = 27.sp,
             fontFamily = FontFamily.SansSerif,
             color = Color.Black,
 
@@ -87,15 +89,16 @@ fun CvView(navController: NavController, viewModel: UserProfileViewModel) {
         )
 
         //card
-        Spacer(modifier = Modifier.height(50.dp))
+        Spacer(modifier = Modifier.height(70.dp))
         Card(
             elevation = CardDefaults.cardElevation(defaultElevation = 40.dp),
             modifier = Modifier
-                .height(65.dp)
+                .height(90.dp)
                 .padding(start = 13.dp, end = 13.dp)
 
 
         ) {
+
 
             Row(
                 modifier = Modifier
@@ -105,6 +108,8 @@ fun CvView(navController: NavController, viewModel: UserProfileViewModel) {
                 verticalAlignment = Alignment.CenterVertically
 
             ) {
+                Icon(painter = painterResource(id = R.drawable.slack), contentDescription =null )
+                Spacer(modifier = Modifier.width(15.dp))
 
                 Text(
                     stateFlow.slackUsername,
@@ -118,16 +123,16 @@ fun CvView(navController: NavController, viewModel: UserProfileViewModel) {
                     )
                 )
 
+
+
             }
-
-
         }
 
         Spacer(modifier = Modifier.height(25.dp))
         Card(
             elevation = CardDefaults.cardElevation(defaultElevation = 40.dp),
             modifier = Modifier
-                .height(65.dp)
+                .height(90.dp)
                 .padding(start = 13.dp, end = 13.dp)
 
         ) {
@@ -138,6 +143,9 @@ fun CvView(navController: NavController, viewModel: UserProfileViewModel) {
                     .fillMaxWidth(), verticalAlignment = Alignment.CenterVertically
 
             ) {
+
+                Icon(painter = painterResource(id = R.drawable.github), contentDescription =null )
+                Spacer(modifier = Modifier.width(15.dp))
                 Text(
                     stateFlow.gitHubHandle,
                     style = TextStyle(
@@ -158,7 +166,7 @@ fun CvView(navController: NavController, viewModel: UserProfileViewModel) {
         Card(
             elevation = CardDefaults.cardElevation(defaultElevation = 40.dp),
             modifier = Modifier
-                .height(65.dp)
+                .height(90.dp)
                 .padding(start = 13.dp, end = 13.dp)
 
         ) {
@@ -169,9 +177,13 @@ fun CvView(navController: NavController, viewModel: UserProfileViewModel) {
                     .fillMaxWidth(), verticalAlignment = Alignment.CenterVertically
 
             ) {
+
+                Icon(painter = painterResource(id = R.drawable.bio), contentDescription =null )
+                Spacer(modifier = Modifier.width(15.dp))
+
                 Text(
                     stateFlow.bio,
-                    maxLines = 2,
+                    maxLines = 3,
                     fontSize = 17.sp,
                     fontFamily = FontFamily.SansSerif,
                     color = Color.Black,

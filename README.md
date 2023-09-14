@@ -8,6 +8,7 @@ It also allows the user to navigate between the two screens.
 * Material UI Theming
 * Editing and Viewing Capabilities
 * No database
+* Scrollstate for shorter device
 
 
 
@@ -38,5 +39,5 @@ implementation("androidx.navigation:navigation-compose:2.7.2")
 4. Kotlin Programming Language
 
 # App Demo on Appetize.io
-
+Link to [Appetize](https://appetize.io/app/jcmpyx7ddhewoni3nexnmdceou)
 

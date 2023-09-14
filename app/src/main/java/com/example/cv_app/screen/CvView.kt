@@ -114,7 +114,7 @@ fun CvView(navController: NavController, viewModel: UserProfileViewModel) {
                         color = Color.Black,
                         textAlign = TextAlign.Center,
                         fontWeight = FontWeight.Bold,
-                       
+
                     )
                 )
 

@@ -183,9 +183,10 @@ fun EditCv(navController: NavHostController, viewModel: UserProfileViewModel) {
         Button(
             onClick = {
                 isButtonEnabled = newFullName.isNotEmpty()
-                        && newSlackUsername.isNotEmpty()
-                        && newGitHandle.isNotEmpty()
-                        && newBio.isNotEmpty()
+                        && newBio.isNotEmpty() //validation for users to fill in all fields
+                       && newSlackUsername.isNotEmpty()
+                       && newGitHandle.isNotEmpty()
+
                 if (isButtonEnabled) {
                     val updatedCvDetails =
                         CvDetails(newFullName, newSlackUsername, newGitHandle, newBio)
